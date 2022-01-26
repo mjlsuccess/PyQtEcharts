@@ -1,6 +1,6 @@
 # PyQtECharts: Introduce ECharts for PyQt5
 
-1. This repo provide a simple demo to show using ECharts in PyQt5. We use *qtcreator* create/modify the ui file *mainwindow.ui*, then convert *mainwindow.ui* to *mainwindow_ui.py* with command:
+1. This repo provide a simple demo to show using ECharts in PyQt5. We use ***qtcreator*** create/modify the ui file ***mainwindow.ui***, then convert ***mainwindow.ui*** to ***mainwindow_ui.py*** with command:
 
    ```shell
    pyuic5 -o mainwindow_ui.py mainwindow.ui
@@ -22,7 +22,7 @@
    python main.py
    ```
 
-4. Currently, it supports 3 styles: Line, Bar, Pie, shown in below; ECharts has lots of styles, you can introduce new styles based on this repo.
+4. Currently, it supports 3 styles: **Line**, **Bar**, **Pie**, shown in below; ECharts has lots of styles, you can introduce new styles based on this repo.
 
    <img src="result.png" alt="result.png" style="zoom:75%;" />
 

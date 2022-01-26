@@ -14,7 +14,7 @@
 
 3. How to run:
 
-   a. set the ***htmlfile*** with correct file path in ***main.py***
+   a. set the ***htmlfile*** with correct  absolute file path in ***main.py***
 
    b. open terminal and run:
 

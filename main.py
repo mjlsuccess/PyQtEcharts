@@ -17,15 +17,15 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        htmlfile = "C:\ICT\workspace\PyQtEcharts\html\line.html"
+        htmlfile = "C:\\ICT\\workspace\\PyQtEcharts\\html\\line.html"
         self.line1 = echarts.Line(cvtPath(htmlfile), self.ui.scrollArea, ["Series1 %", "Series2 %", "Series3 %", "Series4 %"], title="Line test")
         self.line2 = echarts.Line(cvtPath(htmlfile), self.ui.scrollArea_4, ["Series1 %", "Series2 %", "Series3 %", "Series4 %"], title="Line test")
 
-        htmlfile = "C:\ICT\workspace\PyQtEcharts\html\\bar.html"
+        htmlfile = "C:\\ICT\\workspace\\PyQtEcharts\\html\\bar.html"
         self.bar1 = echarts.Bar(cvtPath(htmlfile), self.ui.scrollArea_2, xAxis=["123"], legends=["Series1 %", "Series2 %", "Series3 %", "Series4 %"], title="Bar test1") 
         self.bar2 = echarts.Bar(cvtPath(htmlfile), self.ui.scrollArea_5, xAxis=["123"], legends=["Series1 %", "Series2 %", "Series3 %", "Series4 %"], title="Bar test2") 
 
-        htmlfile = "C:\ICT\workspace\PyQtEcharts\html\pie.html"
+        htmlfile = "C:\\ICT\\workspace\\PyQtEcharts\\html\\pie.html"
         self.pie1 = echarts.Pie(cvtPath(htmlfile), self.ui.scrollArea_3, title="Pie test1/ms")
         self.pie2 = echarts.Pie(cvtPath(htmlfile), self.ui.scrollArea_7, title="Pie test2/ms")
 

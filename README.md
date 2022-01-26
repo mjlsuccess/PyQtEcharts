@@ -22,10 +22,12 @@
    python main.py
    ```
 
-4. Currently, it supports 3 styles: **Line**, **Bar**, **Pie**, shown in below; ECharts has lots of styles, you can introduce new styles based on this repo.
+4. Currently, it supports 3 styles: **Line**, **Bar**, **Pie**, shown in below; ECharts[1] has lots of styles, you can introduce new styles based on this repo.
 
    <img src="result.png" alt="result.png" style="zoom:75%;" />
 
 5. references
 
-   [1] https://echarts.apache.org/examples/en/index.html#chart-type-line
+   [1] https://echarts.apache.org/en/index.html
+   
+   [2] https://echarts.apache.org/examples/en/index.html

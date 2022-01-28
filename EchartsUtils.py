@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import  QScrollArea
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtCore import  QUrl
+from PyQt5.QtCore import  QUrl, QTimer
 
 offset = 20
 
@@ -27,11 +27,27 @@ class Line(object):
 
         self.legends = legends
         self.title = title
+        
+        self.resizeTimer = QTimer()
+        self.resizeTimer.setInterval(300)
+        self.resizeTimer.timeout.connect(self.slotResize)
+        self.resizeTimer.start()
+
+        self.width = self.container.width()
+        self.height = self.container.height()
 
     def slotHtmlLoadFinished(self):
         self.htmlLoadFinished = True
         self.setTitle(self.title)
         self.build()
+    
+    def slotResize(self):
+        if self.htmlLoadFinished:
+            if self.width != self.container.width() or self.height != self.container.height():
+                self.width  = self.container.width()
+                self.height = self.container.height()
+                self.build()
+
     
     def update(self, xAxisData: any, yAxisData: list):
         assert len(self.legends) == len(yAxisData)
@@ -75,10 +91,26 @@ class Bar(object):
         self.xAxis = xAxis
         self.title = title
 
+        self.resizeTimer = QTimer()
+        self.resizeTimer.setInterval(300)
+        self.resizeTimer.timeout.connect(self.slotResize)
+        self.resizeTimer.start()
+
+        self.width = self.container.width()
+        self.height = self.container.height()
+
+
     def slotHtmlLoadFinished(self):
         self.htmlLoadFinished = True
         self.setTitle(self.title)
         self.build()
+
+    def slotResize(self):
+        if self.htmlLoadFinished:
+            if self.width != self.container.width() or self.height != self.container.height():
+                self.width  = self.container.width()
+                self.height = self.container.height()
+                self.build()
     
     def update(self, yAxisData: list):
         yAxisData = [str(i) for i in yAxisData]
@@ -116,11 +148,26 @@ class Pie(object):
         # self.legend = legend
         self.title = title
 
+        self.resizeTimer = QTimer()
+        self.resizeTimer.setInterval(300)
+        self.resizeTimer.timeout.connect(self.slotResize)
+        self.resizeTimer.start()
+        
+        self.width = self.container.width()
+        self.height = self.container.height()        
+
     def slotHtmlLoadFinished(self):
         self.htmlLoadFinished = True
         self.build()
         self.setTitle(self.title)
-    
+
+    def slotResize(self):
+        if self.htmlLoadFinished:
+            if self.width != self.container.width() or self.height != self.container.height():
+                self.width  = self.container.width()
+                self.height = self.container.height()
+                self.build()
+
     def update(self, data: dict):
         keys = [str(i) for i in data.keys()]
         values = [str(i) for i in data.values()]

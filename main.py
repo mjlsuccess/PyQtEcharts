@@ -17,15 +17,18 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        htmlfile = "C:\\ICT\\workspace\\PyQtEcharts\\html\\line.html"
+        currentfolder = os.path.abspath(os.path.dirname(__file__))
+        root = os.path.join(currentfolder, "html")
+
+        htmlfile = os.path.join(root, "line.html")
         self.line1 = echarts.Line(cvtPath(htmlfile), self.ui.scrollArea, ["Series1 %", "Series2 %", "Series3 %", "Series4 %"], title="Line test")
         self.line2 = echarts.Line(cvtPath(htmlfile), self.ui.scrollArea_4, ["Series1 %", "Series2 %", "Series3 %", "Series4 %"], title="Line test")
 
-        htmlfile = "C:\\ICT\\workspace\\PyQtEcharts\\html\\bar.html"
+        htmlfile = htmlfile = os.path.join(root, "bar.html")
         self.bar1 = echarts.Bar(cvtPath(htmlfile), self.ui.scrollArea_2, xAxis=["123"], legends=["Series1 %", "Series2 %", "Series3 %", "Series4 %"], title="Bar test1") 
         self.bar2 = echarts.Bar(cvtPath(htmlfile), self.ui.scrollArea_5, xAxis=["123"], legends=["Series1 %", "Series2 %", "Series3 %", "Series4 %"], title="Bar test2") 
 
-        htmlfile = "C:\\ICT\\workspace\\PyQtEcharts\\html\\pie.html"
+        htmlfile = os.path.join(root, "pie.html")
         self.pie1 = echarts.Pie(cvtPath(htmlfile), self.ui.scrollArea_3, title="Pie test1/ms")
         self.pie2 = echarts.Pie(cvtPath(htmlfile), self.ui.scrollArea_7, title="Pie test2/ms")
 
@@ -57,20 +60,7 @@ class MainWindow(QMainWindow):
 
             # if self.count > 20:
             #     self.timer.stop()
-
-    def resizeEvent(self, a0):
-        if self.line1.htmlLoadFinished:
-            self.line1.build()
-        if self.line2.htmlLoadFinished:
-            self.line2.build()            
-        if self.bar1.htmlLoadFinished:
-            self.bar1.build()    
-        if self.pie1.htmlLoadFinished:
-            self.pie1.build()     
-        if self.bar2.htmlLoadFinished:
-            self.bar2.build()    
-        if self.pie2.htmlLoadFinished:
-            self.pie2.build()                   
+              
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
